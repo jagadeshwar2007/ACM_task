@@ -2,12 +2,10 @@ numpy
 pandas
 scikit-learn==1.9.1
 matplotlib
-seaborn
 joblib
 jupyter
 fastapi
 uvicorn
-pydantic
 streamlit
 plotly
 torch

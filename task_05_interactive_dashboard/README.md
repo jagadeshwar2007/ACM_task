@@ -1,38 +1,29 @@
-# Task 5 — Interactive AI Dashboard (Streamlit)
+# Task 5: Interactive dashboard (Streamlit)
 
-A **Streamlit** app around the Task 6 housing-price model. The user describes a California district in the sidebar
-(income, house age, rooms, population, ocean proximity, location…) and the dashboard **re-predicts and redraws every
-chart in real time**.
+A small Streamlit app that uses the housing model from task 6. You change the house details in the sidebar and the predicted price and both charts update right away.
 
-## Run it
+## How to run
 
-```bash
+```
 cd task_05_interactive_dashboard
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-It opens at http://localhost:8501.
+It opens at http://localhost:8501
 
-## What you see
+## What it shows
 
-- **Live prediction** with a comparison to the California median price and the model's test R² / RMSE.
-- **Market position** — histogram of all districts with your prediction marked.
-- **Live income sweep** — the model re-run across 30 income values while holding your other inputs fixed.
-- **Location map** — your point (red star) on a map of sampled districts coloured by price.
-- **Feature importance** — what drives the model overall.
-- A warning when the prediction approaches the dataset's $500,001 price cap.
+- the predicted price
+- a histogram of all districts with a red line at the predicted price
+- a line chart of how the price changes with income (other inputs stay the same)
 
 ## Screenshots
 
-Default inputs (income 4.0 → predicted ≈ $307k):
+Default values (income 4.0):
 
-![default](screenshots/dashboard_default.png)
+![default](screenshots/dashboard1.png)
 
-After moving the income slider to 9.0 (prediction rises to ≈ $482k; the markers on every chart move with it):
+After moving the income slider to 9.0 the price goes up to $482k:
 
-![high income](screenshots/dashboard_high_income.png)
-
-## Files
-- `app.py` — the Streamlit app
-- Loads the trained pipeline and `housing.csv` from `../task_06_housing_price_predictor/` (one shared copy; run Task 6 first if the model file is missing)
+![income 9](screenshots/dashboard2.png)

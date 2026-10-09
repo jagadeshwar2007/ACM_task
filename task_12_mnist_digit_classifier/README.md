@@ -1,40 +1,25 @@
-# Task 12 — Handwritten Digit Classifier (CNN, PyTorch)
+# Task 12: Handwritten digit classifier (CNN)
 
-A **Convolutional Neural Network** trained on **MNIST** (60,000 train / 10,000 test images of handwritten digits).
+A CNN in PyTorch trained on MNIST.
 
-## Run it
+## How to run
 
-```bash
+```
 pip install torch torchvision numpy matplotlib seaborn scikit-learn jupyter
 cd task_12_mnist_digit_classifier
-jupyter notebook mnist_cnn.ipynb      # run all cells; MNIST downloads automatically into ./data
+jupyter notebook mnist_cnn.ipynb
 ```
 
-Trains in about **5 minutes on a 2-core CPU** (6 epochs, ~52 s each); no GPU needed. The notebook is already executed, so the outputs are visible on GitHub.
-
-## Result
-
-> ## Test accuracy: **99.18%** (82 of 10,000 test images misclassified)
-
-| Epoch | Train loss | Validation loss | Validation accuracy |
-|---|---|---|---|
-| 1 | 0.2413 | 0.0666 | 98.00% |
-| 2 | 0.0907 | 0.0507 | 98.58% |
-| 3 | 0.0668 | 0.0515 | 98.52% |
-| 4 | 0.0429 | 0.0422 | 98.86% |
-| 5 | 0.0356 | 0.0409 | 98.92% |
-| 6 | 0.0319 | 0.0411 | 99.04% |
-
-The test set was only used once, at the end; 5,000 training images were held out as a validation set to monitor training.
+MNIST is downloaded automatically into a `data` folder the first time. Training takes about 5 minutes on a CPU (6 epochs).
 
 ## Model
 
-`Conv(1→32, 3×3) → ReLU → Conv(32→64, 3×3) → ReLU → MaxPool(2) → Dropout(0.25) → Flatten → Linear(9216→128) → ReLU → Dropout(0.5) → Linear(128→10)`
+2 conv layers (32 and 64 filters, 3x3), max pooling, dropout, then 2 fully connected layers (128 and 10). Adam optimizer, cross entropy loss, batch size 128.
 
-About 1.2M parameters. Adam optimizer (lr 1e-3, decayed ×0.3 after epoch 3), cross-entropy loss, batch size 128, inputs normalised with MNIST's mean/std, fixed random seed.
+## Result
 
-## Outputs (`outputs/`)
-`sample_digits.png`, `training_curves.png`, `confusion_matrix.png`, `misclassified.png`, `test_accuracy.txt`
+Test accuracy: **99.18%** (82 out of 10,000 test images wrong)
 
-The saved weights are in `model/mnist_cnn.pt` (load with `CNN().load_state_dict(torch.load(...))`; the class is defined in the notebook).
-The remaining errors are mostly messy or genuinely ambiguous handwriting (see `misclassified.png`).
+Validation accuracy after each epoch: 98.00, 98.58, 98.52, 98.86, 98.92, 99.04
+
+The notebook also has the training curves, confusion matrix and some of the wrong predictions (they are mostly messy handwriting). The trained weights are saved in `model/mnist_cnn.pt`.
