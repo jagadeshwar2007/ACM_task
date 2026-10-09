@@ -1,0 +1,2 @@
+test_accuracy=99.18%
+epochs=6

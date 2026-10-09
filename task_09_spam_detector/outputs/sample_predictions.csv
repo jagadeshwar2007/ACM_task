@@ -1,0 +1,9 @@
+message,prediction,svm_score
+WINNER!! You have been selected to receive a £900 prize reward. Call 09061701461 now to claim.,SPAM,0.91
+"Hey, are we still meeting for lunch at 1pm today?",ham,-1.59
+Congratulations! Free entry to win a brand new iPhone. Text WIN to 80082 now,SPAM,0.94
+Can you send me the notes from yesterday's lecture? I missed the last 20 minutes,ham,-0.66
+URGENT! Your account has been suspended. Click http://bit.ly/verify to claim your free gift,SPAM,1.0
+"Mom said dinner will be ready by 8, don't be late",ham,-1.33
+You have won a 1000 cash prize! To claim call 08712300220 before it expires,SPAM,1.42
+"I'll call you after the class, my phone battery is dying",ham,-1.27

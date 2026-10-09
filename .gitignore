@@ -1,0 +1,5 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.venv/
+task_12_mnist_digit_classifier/data/
